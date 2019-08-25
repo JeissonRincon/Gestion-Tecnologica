@@ -1,0 +1,55 @@
+instalar docker en el pc, para seguir un paso a paso de como hacerlo en el siguiente enlace lo explican: https://www.digitalocean.com/community/tutorials/como-instalar-y-usar-docker-en-ubuntu-18-04-1-es
+
+despues de instalado el docker, descargamos las imagenes que necesitamos pararealizar la actividad, las cuales son python y mysql.
+python:
+$ sudo docker pull python
+mysql:
+$ sudo docker pull mysql
+
+una vez instaladas las imagenes procedemos a correr un contenedor que avarcara la basede datos con el siguiente comando:
+$ sudo docker run --name servidor_mysql -e MYSQL_DATABASE=tienda -e MYSQL_ROOT_PASSWORD=gestion -d mysql
+tienda es el nombre de nuestra base de datos, gestion es la contraseña de la misma y por ultimo tenemos servidor_mysql que es el nombre del contenedor de la base de datos.
+
+lo siguiente es clonar este repositorio con el comando:
+$ git clone https://github.com/JeissonRincon/Gestion-Tecnologica
+
+una vez clonado nos movemos a la carpeta tienda_videojuegos-docker asi:
+$ cd Docker
+$ cd tienda_videojuegos-docker
+
+y alli creamos una imagen para nuestra aplicacion web la cual llamaremos tienda
+
+$ sudo docker build -t tienda .
+
+comprobamos si todas nuestras imagenes estan creadas con el siguiente comando:
+$ sudo docker images
+
+deben estan las imagenes correspondientes a python, mysql y tienda, despues de verificar esto creamos un contenedor para la aplicacion web con el siguiente comando:
+$ sudo docker run --name mytienda -e MYSQL_PASSWORD=gestion -p 8080:80 --link servidor_mysql:mysql -d tienda
+
+mytienda es el nombre del contenedor, gestion es la contraseña, 8080 es elnumerodel puerto donde se correra nuestra aplicacion web y tienda es el nombre de la base de datos que creamos anteriormente.
+
+por ultimo si todos los pasos fueron ejecutados correcctamente al correr el comando:
+$ sudo docker ps
+
+nos debe aparecer algo como esto:
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
+a9f8f996c36a        mysql               "docker-entrypoint.s…"   46 minutes ago      Up 46 minutes       3306/tcp, 33060/tcp    servidor_mysql
+d738236eb84c        tienda              "/run.sh"                About an hour ago   Up About an hour    0.0.0.0:8080->80/tcp   mytienda
+
+para finalizar abrimos nuestro buscador y digitamosla direccion local que tenemos junto a :8080 que es el puesto que utilizamos para la aplicacion ejemplo:
+192.168.1.140:8080
+
+nos debe aparecer algo como esto:
+
+
+_______________imagen recortada de la pagina web _______________________
+
+
+ 
+fuentes:
+https://plataforma.josedomingo.org/pledin/cursos/flask/curso/u36/
+https://github.com/josedom24/tienda_videojuegos/tree/docker
+https://www.digitalocean.com/community/tutorials/como-instalar-y-usar-docker-en-ubuntu-18-04-1-es
+
+
