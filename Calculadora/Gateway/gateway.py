@@ -10,22 +10,24 @@ def gateway():
 	    
 	    	s1 = request.form["s1"]
 		s2 = request.form["s2"]
-		suma=requests.get('http://suma:5000/'+num1+'/'+num2).text
+		resultado=requests.get('http://suma:5000/'+s1+'/'+s2).text
 		return render_template('/cliente.html')
 	elif request.form['action'] == '-':
                 s1 = request.form["s1"]
 		s2 = request.form["s2"]
+		resultado=request.get('http://resta:5001'+s1+'/'+s2).text
 		return render_template('/cliente.html')
 	   
 	elif request.form['action'] == '*':
                 s1 = request.form["s1"]
 		s2 = request.form["s2"]
+		resultado=request.get('http://multiplicacion:5002'+s1+'/'+s2).text
 		return render_template('/cliente.html')
 	    
 	elif request.form['action'] == '/':
                 s1 = request.form["s1"]
 		s2 = request.form["s2"]
-	    
+	    	resultado=request.get('http://division:5003'+s1+'/'+s2).text
 		return render_template('/cliente.html')
 
 
