@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CALCULADORA</title>
+</head>
+<body>
+    <form action="{{ url_for('cliente') }}" method="POST">
+        <h1>Operacion</h1>
+	Digite primero los dos numero y posteriormente seleccione la operacion a realizar <br> <br>
+        <h3>Numero 1 : </h3><input type="text" name="s2" id="s1"/></br>
+        <h3>Numero 2 : </h3><input type="text" name="s2" id="s2"/></br><br>
+        <input type="submit" name="action" value="+"/>
+        <input type="submit" name="action" value="-"/>
+        <input type="submit" name="action" value="*"/>
+        <input type="submit" name="action" value="/"/>
+    </form>
+</body>
+</html>

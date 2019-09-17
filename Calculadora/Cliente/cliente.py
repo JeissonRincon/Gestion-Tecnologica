@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template,request, make_response
-import request
+import requests
 
 app = Flask(__name__)
 
@@ -9,8 +9,8 @@ def cliente():
     s1 = request.form["s1"]
     s2 = request.form["s2"]
     operacion = request.form['action']
-    resultado = requests.get('http://gateway:5000'+s1+'/'+s2+'/'+operacion).text
+    resultado = requests.get('http://gateway:5000/'+s1+'/'+s2+'/'+operacion).text
     return render_template('/cliente.html',string_variable=resultado)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0",debug=true)
+    app.run(host="0.0.0.0",debug=True)
