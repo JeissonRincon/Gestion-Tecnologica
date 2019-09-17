@@ -1,33 +1,31 @@
-gateway:
-  build: ./Gateway
-  ports:
-   - "5000:5000"
-  volumes:
-   - .:/code
-suma:
-  build: ./Suma
-  ports:
-   - "4000:5000"
-  volumes:
-   - .:/code
+services:
+  suma:
+    build: ./Suma
+    ports: ["5001:5000"]
 
-resta:
-  build: ./Resta
-  ports:
-   - "3000:5000"
-  volumes:
-   - .:/code
-multiplicacion:
-  build: ./Multiplicacion
-  ports:
-   - "2000:5000"
-  volumes:
-   - .:/code
-division:
-  build: ./Division
-  ports:
-   - "1000:5000"
-  volumes:
-   - .:/code
+  resta:
+    build: ./Resta
+    ports: ["5002:5000"]
+  
+  multiplicacion:
+    build: ./Multiplicacion
+    ports: ["5003:5000"]
+  
+  division:
+    build: ./Division
+    ports: ["5004:5000"]
+  gateway:
+    build: ./Gateway
+    ports: ["5005:5000"]
+    depends_on:
+    -suma
+    -resta
+    -multiplicacion
+    -division
+  cliente:
+    build: ./cliente
+    ports: ["5006:5000"]
+    depends_on:
+      - gateway
 
  
