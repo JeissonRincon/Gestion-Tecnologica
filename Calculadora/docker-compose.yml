@@ -1,30 +1,33 @@
-version: '3'
-services:
-  Division:
-    build: .
-    ports:
-    - "5000:5000"
-    volumes:
-    - .:/code
-    - logvolume01:/var/log
-    links:
-    - redis
-  redis:
-    image: redis
-volumes:
-  logvolume01: {}
+gateway:
+  build: ./Gateway
+  ports:
+   - "5000:5000"
+  volumes:
+   - .:/code
+suma:
+  build: ./Suma
+  ports:
+   - "4000:5000"
+  volumes:
+   - .:/code
 
-  Gateway:
-    build: .
-    ports:
-    - "4000:5000"
-    volumes:
-    - .:/code
-    - logvolume01:/var/log
-    links:
-    - redis
-  redis:
-    image: redis
-volumes:
-  logvolume01: {}
+resta:
+  build: ./Resta
+  ports:
+   - "3000:5000"
+  volumes:
+   - .:/code
+multiplicacion:
+  build: ./Multiplicacion
+  ports:
+   - "2000:5000"
+  volumes:
+   - .:/code
+division:
+  build: ./Division
+  ports:
+   - "1000:5000"
+  volumes:
+   - .:/code
 
+ 

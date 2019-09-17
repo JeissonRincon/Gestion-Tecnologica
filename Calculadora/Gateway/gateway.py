@@ -5,16 +5,21 @@ import requests
 app = Flask(__name__)
 
 @app.route("/<s1>/<s2>/<operacion>")
+@app.route('/')
+def inicio():
+    return('<p>Hola, Mundo.</p>')
+
 def gateway(s1,s2,operacion):
-	if operacion == '+':
-		resultado=requests.get('http://suma:5000/'+s1+'/'+s2).text
-	elif operacion == '-':
-		resultado=request.get('http://resta:5000'+s1+'/'+s2).text	   
-	elif operacion == '*':
-		resultado=request.get('http://multiplicacion:5000'+s1+'/'+s2).text
-	elif operacion == '/':
-	    	resultado=request.get('http://division:5000'+s1+'/'+s2).text
-	return resultado
+    
+    if operacion == '+':
+	resultado=requests.get('http://suma:4000/'+s1+'/'+s2).text
+    elif operacion == '-':
+	resultado=request.get('http://resta:3000'+s1+'/'+s2).text	   
+    elif operacion == '*':
+	resultado=request.get('http://multiplicacion:2000'+s1+'/'+s2).text
+    elif operacion == '/':
+        resultado=request.get('http://division:1000'+s1+'/'+s2).text
+        return resultado
 
 
 if __name__ == "__main__":
