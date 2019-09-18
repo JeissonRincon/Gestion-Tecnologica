@@ -2,39 +2,40 @@ version: "2"
 services:
   cliente:
     build: ./Cliente
-    ports:
-     - "5000:5000"
+    ports: ["5001:5000"]
     volumes:
      - .:/code
+    depends_on:
+      - gateway
   gateway:
     build: ./Gateway
-    ports:
-     - "5010:5000"
+    ports: ["5010:5000"]
     volumes:
      - .:/code
+    depends_on:
+      - suma
+      - resta
+      - multiplicacion
+      - division
   suma:
     build: ./Suma
-    ports:
-     - "5020:5000"
+    ports: ["5020:5000"]
     volumes:
      - .:/code
 
   resta:
     build: ./Resta
-    ports:
-     - "5030:5000"
+    ports: ["5030:5000"]
     volumes:
      - .:/code
   multiplicacion:
     build: ./Multiplicacion
-    ports:
-     - "5040:5000"
+    ports: ["5040:5000"]
     volumes:
      - .:/code
   division:
     build: ./Division
-    ports:
-     - "5050:5000"
+    ports: ["5050:5000"]
     volumes:
      - .:/code
 

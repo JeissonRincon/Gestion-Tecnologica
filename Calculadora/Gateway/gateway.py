@@ -15,12 +15,13 @@ def default(s1,s2,operacion):
     if operacion == '+':
 	resultado=requests.get('http://suma:5000/'+s1+'/'+s2).text
     elif operacion == '-':
-	resultado=request.get('http://resta:5000'+s1+'/'+s2).text	   
+	resultado=request.get('http://resta:5000/'+s1+'/'+s2).text	   
     elif operacion == '*':
-	resultado=request.get('http://multiplicacion:5000'+s1+'/'+s2).text
+	resultado=request.get('http://multiplicacion:5000/'+s1+'/'+s2).text
     elif operacion == '/':
-        resultado=request.get('http://division:5000'+s1+'/'+s2).text
-        return resultado
+        resultado=request.get('http://division:5000/'+s1+'/'+s2).text
+        
+    return resultado
 
 
 if __name__ == "__main__":
