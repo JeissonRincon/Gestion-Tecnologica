@@ -1,14 +1,14 @@
 version: "2"
 services:
   cliente:
-    build: ./Cliente
+    build: ./cliente
     ports: ["5001:5000"]
     volumes:
      - .:/code
     depends_on:
       - gateway
   gateway:
-    build: ./Gateway
+    build: ./gateway
     ports: ["5010:5000"]
     volumes:
      - .:/code
@@ -18,7 +18,7 @@ services:
       - multiplicacion
       - division
   suma:
-    build: ./Suma
+    build: ./suma
     ports: ["5020:5000"]
     volumes:
      - .:/code
