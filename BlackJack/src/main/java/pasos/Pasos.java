@@ -1,12 +1,12 @@
-package com.opciones.cucumber;
+package pasos;
 
 import java.util.ArrayList;
 
 import blackjack.Baraja;
 import blackjack.Juego;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class Pasos {
 	Juego prueba = new Juego();
