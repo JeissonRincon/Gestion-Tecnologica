@@ -12,7 +12,7 @@ primera forma de instalacion:
 -----------------------------------------
 
 descargar el archivo hontza.tar del siguiente link(1.8Gb):
-
+https://drive.google.com/drive/folders/1WL7XxC0RgqNqyA_KFeWeR9emYm4E-oY4?usp=sharing
 
 una vez descargado nos ubicamos en la carpena en la que lo descargamos e ingresamos el siguiente comendoen la terminal. 
 hay que tener docker instalado previamente
@@ -36,6 +36,7 @@ ahora solo ingresamos desde el navegador en la siguiente url:
 y listo 
 
 usuario:admin
+
 contraseña:hontza
 
 SEGUNTA FORMA DE INSTALACION
@@ -44,11 +45,14 @@ ingrese al sigueinte link y descarga el archivo (2.1Gb):
 https://mega.nz/#!0xIAUaZB!HcPo4yjGYIIzLffooymwjRP7f3JRnl13Rvvg8iqZG3g
 
 instala una maquina virtual como virtualbox.
+
 en la pestaña de archivo seleciona importar servicio virtualizado.
 y selecciona el archivo que descargamos 
+
 y listo
-para ingresar hay que escribir en el navegador el localhost de la maquina virtualizada / hotnza
+para ingresar hay que escribir en el navegador el localhost de la maquina virtualizada / hontza
 
 usuario:admin
+
 contraseña:hontza
 
